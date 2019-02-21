@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   post '/users/:user_id/comics' => 'comics#create'
   # remove favorite
   delete '/users/:user_id/comics/:id' => 'comics#destroy'
-  
+
+  # https://stackoverflow.com/questions/48733512/how-do-i-mount-a-standalone-rack-app-into-a-ruby-on-rails-app
+  mount XKCDProxy.new => '/xkcd'
+
 end
