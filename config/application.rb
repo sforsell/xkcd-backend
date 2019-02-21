@@ -13,20 +13,9 @@ module Xkcd
     config.load_defaults 5.1
     config.action_dispatch.default_headers = {
       'Access-Control-Allow-Origin' => '*',
-      'Access-Control-Request-Method' => '*'
+      'Access-Control-Request-Method' => '*',
+      'Access-Control-Allow-Methods' => 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Auth-Token'
     }
-
-    # config.action_controller.forgery_protection_origin_check = false
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins ['localhost:3001', 'xkcd.com']
-        resource '*',
-          headers: :any,
-          methods: %i(get post put patch delete head)
-      end
-    end
   end
 end
