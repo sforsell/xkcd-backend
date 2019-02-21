@@ -18,7 +18,4 @@ development:
   password: password
 
 production:
-  <<: *default
-  database: xkcd_production
-  username: postgres
-  password: password
+  url: <%= ENV["DATABASE_URL"] %>
